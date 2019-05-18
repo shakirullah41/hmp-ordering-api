@@ -86,6 +86,7 @@ export function create(req, res) {
 export function upsert(req, res) {
     if(req.body._id) {
         Reflect.deleteProperty(req.body, '_id');
+        Reflect.deleteProperty(req.body, 'isApprove');
     }
     return Order.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
         .then(respondWithResult(res))
@@ -96,6 +97,7 @@ export function upsert(req, res) {
 export function patch(req, res) {
     if(req.body._id) {
         Reflect.deleteProperty(req.body, '_id');
+        Reflect.deleteProperty(req.body, 'isApprove');
     }
     return Order.findById(req.params.id).exec()
         .then(handleEntityNotFound(res))
