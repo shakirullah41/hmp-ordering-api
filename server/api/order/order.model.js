@@ -11,6 +11,8 @@ var OrderSchema = new mongoose.Schema({
   flight_date: String,
   carcase_weight: String,
   isApprove: Boolean
+},{
+  timestamps: true
 });
 
 registerEvents(OrderSchema);
