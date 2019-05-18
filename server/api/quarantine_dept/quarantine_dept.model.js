@@ -5,6 +5,8 @@ var QuarantineDeptSchema = new mongoose.Schema({
   name: String,
   info: String,
   active: Boolean
+},{
+  timestamps: true
 });
 
 registerEvents(QuarantineDeptSchema);
