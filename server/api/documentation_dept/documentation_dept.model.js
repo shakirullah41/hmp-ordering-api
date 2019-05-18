@@ -10,7 +10,9 @@ var DocumentationDeptSchema = new mongoose.Schema({
   invoice_generation: String,
   certificate_of_origin:String,
   form_e:String,
-  driver_name:String
+  driver_name:String,
+  status: String,
+  order: { type: Schema.Types.ObjectId, ref: 'Order' },
 },{
   timestamps: true
 });
