@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import {registerEvents} from './order.events';
+const Schema = mongoose.Schema;
 
 var OrderSchema = new mongoose.Schema({
   date_of_delivery: Date,
@@ -11,9 +12,9 @@ var OrderSchema = new mongoose.Schema({
   flight_date: String,
   carcase_weight: String,
   isApprove: Boolean,
-  documention_team: { type: Schema.Types.ObjectId, ref: 'DocumentationDept' },
+  documentation_team: { type: Schema.Types.ObjectId, ref: 'DocumentationDept' },
   production_team: { type: Schema.Types.ObjectId, ref: 'ProductionDept' },
-  documention_team: { type: Schema.Types.ObjectId, ref: 'QuarantineDept' },
+  quarantine_team: { type: Schema.Types.ObjectId, ref: 'QuarantineDept' },
 },{
   timestamps: true
 });
