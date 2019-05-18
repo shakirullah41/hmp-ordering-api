@@ -2,9 +2,17 @@ import mongoose from 'mongoose';
 import {registerEvents} from './documentation_dept.events';
 
 var DocumentationDeptSchema = new mongoose.Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  booking_airline: String,
+  booking_time: String,
+  booking_location: String,
+  halal_certificate: String,
+  doc_creation_date: Date,
+  invoice_generation: String,
+  certificate_of_origin:String,
+  form_e:String,
+  driver_name:String
+},{
+  timestamps: true
 });
 
 registerEvents(DocumentationDeptSchema);
