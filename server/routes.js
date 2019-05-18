@@ -7,6 +7,7 @@ import path from 'path';
 
 export default function(app) {
     // Insert routes below
+    app.use('/api/quarantine_dept', require('./api/quarantine_dept'));
     app.use('/api/doc_team', require('./api/documentation_dept'));
     app.use('/api/stock', require('./api/stock'));
     app.use('/api/order', require('./api/order'));
