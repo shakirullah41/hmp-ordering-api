@@ -89,13 +89,8 @@ export function create(req, res) {
   const animalIds = animalsData.map(animal=>animal._id);
   stock.animals_ref = animalIds;
   return Promise.all([Stock.create(stock),Animals.create(animalsData)])
-    // .then(animals=>{
-    //   const animalIds = animals.map(animal=>animal._id);
-    //   stockInfo.push(animalIds)
-    //   return stockInfo.save();
-    // })
-      .then(respondWithResult(res, 201))
-      .catch(handleError(res));
+    .then(respondWithResult(res, 201))
+    .catch(handleError(res));
 }
 
 // Upserts the given Stock in the DB at the specified ID
