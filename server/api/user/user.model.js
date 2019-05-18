@@ -21,7 +21,9 @@ var UserSchema = new Schema({
     },
     provider: String,
     salt: String
-});
+},{
+    timestamps: true
+  });
 
 /**
  * Virtuals
