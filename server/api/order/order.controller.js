@@ -10,6 +10,10 @@
 
 import { applyPatch } from 'fast-json-patch';
 import Order from './order.model';
+import DocumentationDept from '../documentation_dept/documentation_dept.model';
+import ProductionDept from '../production_dept/production_dept.model';
+import QuarantineDept from '../quarantine_dept/quarantine_dept.model';
+import mongoose from 'mongoose';
 
 function respondWithResult(res, statusCode) {
     statusCode = statusCode || 200;
@@ -61,7 +65,11 @@ function handleError(res, statusCode) {
 
 // Gets a list of Orders
 export function index(req, res) {
-    return Order.find().exec()
+    return Order.find()
+    .populate('documentation_team')
+    .populate('quarantine_team')
+    .populate('production_team')
+    .exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
@@ -89,6 +97,22 @@ export function upsert(req, res) {
         Reflect.deleteProperty(req.body, 'isApprove');
     }
     return Order.findOneAndUpdate({_id: req.params.id}, req.body, {new: true, upsert: true, setDefaultsOnInsert: true, runValidators: true}).exec()
+        .then(respondWithResult(res))
+        .catch(handleError(res));
+}
+export async function approve(req, res) {
+    let toCreate = {order:req.params.id,status:'pending',_id:new mongoose.Types.ObjectId()};
+    await Promise.all([
+        DocumentationDept.create(toCreate),
+        ProductionDept.create(toCreate),
+        QuarantineDept.create(toCreate)
+    ]);
+    return Order.update({_id: req.params.id}, {
+        isApprove:true,
+        documentation_team: toCreate._id,
+        production_team:toCreate._id,
+        quarantine_team: toCreate._id,
+    }).exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
