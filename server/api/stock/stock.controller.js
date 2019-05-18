@@ -81,7 +81,7 @@ export function create(req, res) {
   let stockInfo = {}; 
   let stock = req.body;
   stock._id = new mongoose.Types.ObjectId();
-  let animalsData = req.body.animals.map((animal)=>{ 
+  let animalsData = req.body.animals.map((animal)=>{
     animal.stock_id = stock._id;
     animal._id = new mongoose.Types.ObjectId();
     return animal;
