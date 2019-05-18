@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+const Schema = mongoose.Schema;
 import {registerEvents} from './documentation_dept.events';
 
 var DocumentationDeptSchema = new mongoose.Schema({
