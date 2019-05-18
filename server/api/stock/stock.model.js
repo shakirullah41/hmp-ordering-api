@@ -11,6 +11,8 @@ var StockSchema = new mongoose.Schema({
   Procured_by : String,
   grn: String,
   animals_ref: [{ type: Schema.Types.ObjectId, ref: 'Animals' }]
+},{
+  timestamps: true
 });
 
 registerEvents(StockSchema);
