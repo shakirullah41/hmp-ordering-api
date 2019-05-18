@@ -10,7 +10,10 @@ var OrderSchema = new mongoose.Schema({
   flight_name: String,
   flight_date: String,
   carcase_weight: String,
-  isApprove: Boolean
+  isApprove: Boolean,
+  documention_team: { type: Schema.Types.ObjectId, ref: 'DocumentationDept' },
+  production_team: { type: Schema.Types.ObjectId, ref: 'ProductionDept' },
+  documention_team: { type: Schema.Types.ObjectId, ref: 'QuarantineDept' },
 },{
   timestamps: true
 });
