@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import {registerEvents} from './quarantine_dept.events';
+const Schema = mongoose.Schema;
 
 var QuarantineDeptSchema = new mongoose.Schema({
   date_of_quarantine: Date, 
