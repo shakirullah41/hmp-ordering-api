@@ -10,6 +10,8 @@
 
 import { applyPatch } from 'fast-json-patch';
 import Stock from './stock.model';
+import Animals from './animals.model';
+import mongoose from 'mongoose';
 
 function respondWithResult(res, statusCode) {
     statusCode = statusCode || 200;
@@ -61,14 +63,14 @@ function handleError(res, statusCode) {
 
 // Gets a list of Stocks
 export function index(req, res) {
-    return Stock.find().exec()
+    return Stock.find().populate('animals_ref').exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
 
 // Gets a single Stock from the DB
 export function show(req, res) {
-    return Stock.findById(req.params.id).exec()
+    return Stock.findById(req.params.id).populate('animals_ref').exec()
         .then(handleEntityNotFound(res))
         .then(respondWithResult(res))
         .catch(handleError(res));
@@ -76,9 +78,24 @@ export function show(req, res) {
 
 // Creates a new Stock in the DB
 export function create(req, res) {
-    return Stock.create(req.body)
-        .then(respondWithResult(res, 201))
-        .catch(handleError(res));
+  let stockInfo = {}; 
+  let stock = req.body;
+  stock._id = new mongoose.Types.ObjectId();
+  let animalsData = req.body.animals.map((animal)=>{ 
+    animal.stock_id = stock._id;
+    animal._id = new mongoose.Types.ObjectId();
+    return animal;
+  });
+  const animalIds = animalsData.map(animal=>animal._id);
+  stock.animals_ref = animalIds;
+  return Promise.all([Stock.create(stock),Animals.create(animalsData)])
+    // .then(animals=>{
+    //   const animalIds = animals.map(animal=>animal._id);
+    //   stockInfo.push(animalIds)
+    //   return stockInfo.save();
+    // })
+      .then(respondWithResult(res, 201))
+      .catch(handleError(res));
 }
 
 // Upserts the given Stock in the DB at the specified ID
