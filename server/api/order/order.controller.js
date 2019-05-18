@@ -101,6 +101,10 @@ export function upsert(req, res) {
         .catch(handleError(res));
 }
 export async function approve(req, res) {
+    const orderdata = await Order.findById(req.params);
+    if(orderdata.isApprove){
+        return req.send('order is already approved');
+    }
     let toCreate = {order:req.params.id,status:'pending',_id:new mongoose.Types.ObjectId()};
     await Promise.all([
         DocumentationDept.create(toCreate),
