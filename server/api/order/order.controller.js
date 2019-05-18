@@ -76,6 +76,7 @@ export function show(req, res) {
 
 // Creates a new Order in the DB
 export function create(req, res) {
+    req.body.isApprove = false;
     return Order.create(req.body)
         .then(respondWithResult(res, 201))
         .catch(handleError(res));
