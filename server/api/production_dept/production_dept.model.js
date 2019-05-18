@@ -13,6 +13,8 @@ var ProductionDeptSchema = new mongoose.Schema({
   documents_weight: String ,
   airline_weight : String,
   customer_weight: String,
+  order: { type: Schema.Types.ObjectId, ref: 'Order' },
+  status: String
 },{
   timestamps: true
 });
