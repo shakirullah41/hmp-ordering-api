@@ -9,7 +9,7 @@ var OrderSchema = new mongoose.Schema({
   type: String,
   mode: String,
   flight_name: String,
-  flight_date: String,
+  flight_date: Date,
   carcase_weight: String,
   isApprove: Boolean,
   documentation_team: { type: Schema.Types.ObjectId, ref: 'DocumentationDept' },

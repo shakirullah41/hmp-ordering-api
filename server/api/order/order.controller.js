@@ -62,7 +62,21 @@ function handleError(res, statusCode) {
         res.status(statusCode).send(err);
     };
 }
-
+/**
+ * @api {get} /order Get list of Orders
+ * @apiName GetOrders
+ * @apiGroup User
+ *
+ *
+ * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiSuccess {String} product_type  Product Type of the Order.
+ * @apiSuccess {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiSuccess {String} type  type of the Order.
+ * @apiSuccess {String} mode  mode of the Order.
+ * @apiSuccess {String} flight_name  Flight Name of the Order.
+ * @apiSuccess {String} flight_date  Flight Date of the Order.
+ * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
+ */
 // Gets a list of Orders
 export function index(req, res) {
     return Order.find()
