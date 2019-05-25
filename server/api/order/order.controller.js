@@ -65,7 +65,7 @@ function handleError(res, statusCode) {
 /**
  * @api {get} /order Get list of Orders
  * @apiName GetOrders
- * @apiGroup User
+ * @apiGroup Order
  *
  *
  * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
@@ -90,7 +90,7 @@ export function index(req, res) {
 /**
  * @api {get} /order/:id Get list of Orders
  * @apiName GetOrders
- * @apiGroup User
+ * @apiGroup Order
  *
  * @apiParam {Number} id Order unique ID.
  *
@@ -111,11 +111,9 @@ export function show(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {post} /order/:id GCreates a new Order
+ * @api {post} /order Creates a new Order
  * @apiName CreateOrders
- * @apiGroup User
- *
- * @apiParam {Number} id Order unique ID.
+ * @apiGroup Order
  *
  * @apiParam (Request body) {Date} date_of_delivery Date Of Delivery of the Order.
  * @apiParam (Request body) {String} product_type  Product Type of the Order.
@@ -142,7 +140,6 @@ export function create(req, res) {
         .then(respondWithResult(res, 201))
         .catch(handleError(res));
 }
-
 // Upserts the given Order in the DB at the specified ID
 export function upsert(req, res) {
     if(req.body._id) {
