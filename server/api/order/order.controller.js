@@ -67,6 +67,7 @@ function handleError(res, statusCode) {
  * @apiName GetOrders
  * @apiGroup Order
  *
+ * @apiParam {Boolean} isApprove To get approved Orders.
  *
  * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
  * @apiSuccess {String} product_type  Product Type of the Order.
@@ -82,8 +83,9 @@ function handleError(res, statusCode) {
  **/
 // Gets a list of Orders
 export function index(req, res) {
+    const {isApprove=false} = req.query;
 
-    return Order.find()
+    return Order.find({isApprove})
     .populate('documentation_team')
     .populate('quarantine_team')
     .populate('production_team')
