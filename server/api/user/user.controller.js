@@ -43,6 +43,17 @@ export function index(req, res) {
 /**
  * Creates a new user
  */
+/**
+ * @api {post} /user Creates a new user
+ * @apiName CreateUser
+ * @apiGroup User
+ *
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} role  Role of the User.
+ * @apiSuccess {String} password  Password of the User.
+ */
 export function create(req, res) {
     var newUser = new User(req.body);
     newUser.provider = 'local';
