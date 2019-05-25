@@ -148,6 +148,18 @@ export function changePassword(req, res) {
 /**
  * Get my info
  */
+/**
+ * @api {put} /user/me Get my info
+ * @apiName GetMyInfo
+ * @apiGroup User
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} department  Department of the User.
+ * @apiSuccess {String} role  Role of the User.
+ * @apiSuccess {String} password  Password of the User.
+ */
 export function me(req, res, next) {
     var userId = req.user._id;
 
