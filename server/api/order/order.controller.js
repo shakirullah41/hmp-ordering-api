@@ -150,8 +150,26 @@ export function upsert(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
+/**
+ * @api {put} /order/:id Approve Order
+ * @apiName ApproveOrders
+ * @apiGroup Order
+ *
+ * @apiParam {Number} id Order unique ID.
+ *
+ * @apiSuccess {String} check Order is already approved.
+ * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiSuccess {String} product_type  Product Type of the Order.
+ * @apiSuccess {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiSuccess {String} type  type of the Order.
+ * @apiSuccess {String} mode  mode of the Order.
+ * @apiSuccess {String} flight_name  Flight Name of the Order.
+ * @apiSuccess {String} flight_date  Flight Date of the Order.
+ * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
+ * 
+ */
 export async function approve(req, res) {
-    const orderdata = await Order.findById(req.params);
+    const orderdata = await Order.findById(req.params.id);
     if(orderdata.isApprove){
         return req.send('order is already approved');
     }
