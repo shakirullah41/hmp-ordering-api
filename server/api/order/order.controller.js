@@ -76,7 +76,10 @@ function handleError(res, statusCode) {
  * @apiSuccess {String} flight_name  Flight Name of the Order.
  * @apiSuccess {String} flight_date  Flight Date of the Order.
  * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
- */
+ * @apiSuccess {String} documentation_team  production_team.
+ * @apiSuccess {String} quarantine_team  quarantine_team.
+ * @apiSuccess {String} production_team  production_team.
+ **/
 // Gets a list of Orders
 export function index(req, res) {
     return Order.find()
