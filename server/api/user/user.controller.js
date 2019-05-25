@@ -51,7 +51,13 @@ export function index(req, res) {
  * @apiName CreateUser
  * @apiGroup User
  *
- *
+ * @apiParam (Request body) {String} firstname Firstname of the User
+ * @apiParam (Request body) {String} lastname  Lastname of the User
+ * @apiParam (Request body) {String} email  Email of the User.
+ * @apiParam (Request body) {String} department  Department of the User.
+ * @apiParam (Request body) {String} role  Role of the User.
+ * @apiParam (Request body) {String} password  Password of the User.
+ * 
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  * @apiSuccess {String} email  Email of the User.
@@ -131,6 +137,9 @@ export function destroy(req, res) {
  * @apiName ChangeUserPassword
  * @apiGroup User
  *
+ * @apiParam (Request body) {String} oldPassword Old Password
+ * @apiParam (Request body) {String} newPassword New Password
+ * 
  * @apiParam {Number} id Users unique ID.
  */
 export function changePassword(req, res) {
@@ -157,7 +166,7 @@ export function changePassword(req, res) {
  * Get my info
  */
 /**
- * @api {put} /user/me Get my info
+ * @api {get} /user/me Get my info
  * @apiName GetMyInfo
  * @apiGroup User
  *
