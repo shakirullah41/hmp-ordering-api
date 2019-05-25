@@ -118,6 +118,13 @@ export function destroy(req, res) {
 /**
  * Change a users password
  */
+/**
+ * @api {put} /user/:id/password Change a users password
+ * @apiName ChangeUserPassword
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ */
 export function changePassword(req, res) {
     var userId = req.user._id;
     var oldPass = String(req.body.oldPassword);
