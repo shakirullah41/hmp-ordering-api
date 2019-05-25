@@ -21,6 +21,7 @@ function handleError(res, statusCode) {
  * Get list of users
  * restriction: 'admin'
  */
+
 export function index(req, res) {
     return User.find({}, '-salt -password').exec()
         .then(users => {
@@ -48,6 +49,18 @@ export function create(req, res) {
 
 /**
  * Get a single user
+ */
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} role  Role of the User.
+ * @apiSuccess {String} password  Password of the User.
  */
 export function show(req, res, next) {
     var userId = req.params.id;

@@ -16,6 +16,7 @@ import {protractor, webdriver_update} from 'gulp-protractor';
 import {Instrumenter} from 'isparta';
 import webpack from 'webpack';
 import makeWebpackConfig from './webpack.make';
+import apidoc from 'gulp-apidoc';
 
 var plugins = gulpLoadPlugins();
 var config;
@@ -189,7 +190,12 @@ gulp.task('env:prod', () => {
 gulp.task('inject', cb => {
     runSequence(['inject:scss'], cb);
 });
-
+gulp.task('apidoc', (done)=>{
+    apidoc({
+      src: "server/",
+      dest: "apidoc/"
+    },done);
+});
 gulp.task('inject:scss', () => {
     return gulp.src(paths.client.mainStyle)
         .pipe(plugins.inject(

@@ -4,6 +4,7 @@
 
 import errors from './components/errors';
 import path from 'path';
+import express from 'express';
 
 export default function(app) {
     // Insert routes below
@@ -14,7 +15,7 @@ export default function(app) {
     app.use('/api/order', require('./api/order'));
     app.use('/api/users', require('./api/user'));
     app.use('/auth', require('./auth').default);
-
+    app.use('/apidoc', express.static('apidoc'));
     // All undefined asset or api routes should return a 404
     app.route('/:url(api|auth|components|app|bower_components|assets)/*')
         .get(errors[404]);
