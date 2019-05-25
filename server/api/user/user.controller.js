@@ -100,6 +100,13 @@ export function show(req, res, next) {
  * Deletes a user
  * restriction: 'admin'
  */
+/**
+ * @api {delete} /user/:id Deletes a user restriction: 'admin'
+ * @apiName DeleteUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ */
 export function destroy(req, res) {
     return User.findByIdAndRemove(req.params.id).exec()
         .then(function() {
