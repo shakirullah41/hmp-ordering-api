@@ -87,7 +87,22 @@ export function index(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {get} /order/:id Get list of Orders
+ * @apiName GetOrders
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Order unique ID.
+ *
+ * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiSuccess {String} product_type  Product Type of the Order.
+ * @apiSuccess {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiSuccess {String} type  type of the Order.
+ * @apiSuccess {String} mode  mode of the Order.
+ * @apiSuccess {String} flight_name  Flight Name of the Order.
+ * @apiSuccess {String} flight_date  Flight Date of the Order.
+ * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
+ */
 // Gets a single Order from the DB
 export function show(req, res) {
     return Order.findById(req.params.id).exec()
@@ -95,7 +110,31 @@ export function show(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {post} /order/:id GCreates a new Order
+ * @apiName CreateOrders
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Order unique ID.
+ *
+ * @apiParam (Request body) {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiParam (Request body) {String} product_type  Product Type of the Order.
+ * @apiParam (Request body) {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiParam (Request body) {String} type  type of the Order.
+ * @apiParam (Request body) {String} mode  mode of the Order.
+ * @apiParam (Request body) {String} flight_name  Flight Name of the Order.
+ * @apiParam (Request body) {String} flight_date  Flight Date of the Order.
+ * @apiParam (Request body) {String} carcase_weight  Carcase Weight of the Order.
+ * 
+ * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiSuccess {String} product_type  Product Type of the Order.
+ * @apiSuccess {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiSuccess {String} type  type of the Order.
+ * @apiSuccess {String} mode  mode of the Order.
+ * @apiSuccess {String} flight_name  Flight Name of the Order.
+ * @apiSuccess {String} flight_date  Flight Date of the Order.
+ * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
+ */
 // Creates a new Order in the DB
 export function create(req, res) {
     req.body.isApprove = false;
