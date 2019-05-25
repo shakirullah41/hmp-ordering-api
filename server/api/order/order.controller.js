@@ -89,7 +89,7 @@ export function index(req, res) {
 }
 /**
  * @api {get} /order/:id Get list of Orders
- * @apiName GetOrders
+ * @apiName GetOrder
  * @apiGroup Order
  *
  * @apiParam {Number} id Order unique ID.
@@ -112,7 +112,7 @@ export function show(req, res) {
 }
 /**
  * @api {post} /order Creates a new Order
- * @apiName CreateOrders
+ * @apiName CreateOrder
  * @apiGroup Order
  *
  * @apiParam (Request body) {Date} date_of_delivery Date Of Delivery of the Order.
@@ -170,7 +170,31 @@ export async function approve(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {patch} /order/:id Update Order
+ * @apiName UpdateOrder
+ * @apiGroup Order
+ *
+ * @apiParam {Number} id Order unique ID.
+ *
+ * @apiParam (Request body) {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiParam (Request body) {String} product_type  Product Type of the Order.
+ * @apiParam (Request body) {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiParam (Request body) {String} type  type of the Order.
+ * @apiParam (Request body) {String} mode  mode of the Order.
+ * @apiParam (Request body) {String} flight_name  Flight Name of the Order.
+ * @apiParam (Request body) {String} flight_date  Flight Date of the Order.
+ * @apiParam (Request body) {String} carcase_weight  Carcase Weight of the Order.
+ * 
+ * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
+ * @apiSuccess {String} product_type  Product Type of the Order.
+ * @apiSuccess {String} mode_of_delivery  Mode Of Delivery of the Order.
+ * @apiSuccess {String} type  type of the Order.
+ * @apiSuccess {String} mode  mode of the Order.
+ * @apiSuccess {String} flight_name  Flight Name of the Order.
+ * @apiSuccess {String} flight_date  Flight Date of the Order.
+ * @apiSuccess {String} carcase_weight  Carcase Weight of the Order.
+ */
 // Updates an existing Order in the DB
 export function patch(req, res) {
     if(req.body._id) {
@@ -183,7 +207,14 @@ export function patch(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {delete} /order/:id Delete Order
+ * @apiName DeleteOrder
+ * @apiGroup Order
+ *
+ * @apiParam {Number} id Order unique ID.
+ *
+ */
 // Deletes a Order from the DB
 export function destroy(req, res) {
     return Order.findById(req.params.id).exec()
