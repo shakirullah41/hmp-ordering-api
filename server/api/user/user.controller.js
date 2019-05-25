@@ -22,7 +22,8 @@ function handleError(res, statusCode) {
  * restriction: 'admin'
  */
 /**
- * @api {get} /user Get list of users restriction: 'admin'
+ * @api {get} /user Get list of users
+ * @apiPermission admin
  * @apiName GetUser
  * @apiGroup User
  *
@@ -107,7 +108,8 @@ export function show(req, res, next) {
  * restriction: 'admin'
  */
 /**
- * @api {delete} /user/:id Deletes a user restriction: 'admin'
+ * @api {delete} /user/:id Deletes a user
+ * @apiPermission admin
  * @apiName DeleteUser
  * @apiGroup User
  *
