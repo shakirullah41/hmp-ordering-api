@@ -21,7 +21,17 @@ function handleError(res, statusCode) {
  * Get list of users
  * restriction: 'admin'
  */
-
+/**
+ * @api {get} /user Get list of users restriction: 'admin'
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} role  Role of the User.
+ * @apiSuccess {String} password  Password of the User.
+ */
 export function index(req, res) {
     return User.find({}, '-salt -password').exec()
         .then(users => {
