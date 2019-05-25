@@ -82,6 +82,7 @@ function handleError(res, statusCode) {
  **/
 // Gets a list of Orders
 export function index(req, res) {
+
     return Order.find()
     .populate('documentation_team')
     .populate('quarantine_team')
@@ -91,7 +92,7 @@ export function index(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {get} /order/:id Get list of Orders
+ * @api {get} /order/:id Gets a single Order
  * @apiName GetOrder
  * @apiGroup Order
  *
