@@ -29,6 +29,8 @@ function handleError(res, statusCode) {
  *
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} department  Department of the User.
  * @apiSuccess {String} role  Role of the User.
  * @apiSuccess {String} password  Password of the User.
  */
@@ -51,6 +53,8 @@ export function index(req, res) {
  *
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} department  Department of the User.
  * @apiSuccess {String} role  Role of the User.
  * @apiSuccess {String} password  Password of the User.
  */
@@ -80,6 +84,8 @@ export function create(req, res) {
  *
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
+ * @apiSuccess {String} email  Email of the User.
+ * @apiSuccess {String} department  Department of the User.
  * @apiSuccess {String} role  Role of the User.
  * @apiSuccess {String} password  Password of the User.
  */
