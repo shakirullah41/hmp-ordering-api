@@ -9,7 +9,7 @@ after(function() {
       mongoose.connection.close(resolve);
     }),
     new Promise(resolve => {
-      app.angularFullstack.close(resolve);
+      app.server.close(resolve);
     }),
 
   ]);
