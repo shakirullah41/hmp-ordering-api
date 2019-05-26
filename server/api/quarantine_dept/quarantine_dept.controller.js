@@ -72,7 +72,7 @@ function handleError(res, statusCode) {
 // Gets a list of QuarantineDepts
 export function index(req, res) {
     const {status}=req.query;
-    return QuarantineDept.find({status}).populate('Order').exec()
+    return QuarantineDept.find({status}).populate('order').exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
@@ -90,7 +90,7 @@ export function index(req, res) {
  **/
 // Gets a single QuarantineDept from the DB
 export function show(req, res) {
-    return QuarantineDept.findById(req.params.id).populate('Order').exec()
+    return QuarantineDept.findById(req.params.id).populate('order').exec()
     .then(handleEntityNotFound(res))
         .then(respondWithResult(res))
         .catch(handleError(res));

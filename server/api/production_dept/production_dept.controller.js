@@ -80,7 +80,7 @@ function handleError(res, statusCode) {
 // Gets a list of ProductionDepts
 export function index(req, res) {
     const {status}=req.query;
-    return ProductionDept.find({status}).populate('Order').exec()
+    return ProductionDept.find({status}).populate('order').exec()
     .then(respondWithResult(res))
         .catch(handleError(res));
 }
@@ -106,7 +106,7 @@ export function index(req, res) {
  **/
 // Gets a single ProductionDept from the DB
 export function show(req, res) {
-    return ProductionDept.findById(req.params.id).populate('Order').exec()
+    return ProductionDept.findById(req.params.id).populate('order').exec()
     .then(handleEntityNotFound(res))
         .then(respondWithResult(res))
         .catch(handleError(res));
