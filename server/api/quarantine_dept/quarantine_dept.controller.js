@@ -90,7 +90,8 @@ export function index(req, res) {
 // Gets a single QuarantineDept from the DB
 export function show(req, res) {
     return QuarantineDept.findById(req.params.id).exec()
-        .then(handleEntityNotFound(res))
+    .populate('Order')
+    .then(handleEntityNotFound(res))
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
@@ -98,7 +99,8 @@ export function show(req, res) {
 // Creates a new QuarantineDept in the DB
 export function create(req, res) {
     return QuarantineDept.create(req.body)
-        .then(respondWithResult(res, 201))
+    .populate('Order')
+    .then(respondWithResult(res, 201))
         .catch(handleError(res));
 }
 

@@ -78,6 +78,7 @@ function handleError(res, statusCode) {
 // Gets a list of DocumentationDepts
 export function index(req, res) {
     return DocumentationDept.find().exec()
+    .populate('Order')
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
@@ -102,7 +103,8 @@ export function index(req, res) {
 // Gets a single DocumentationDept from the DB
 export function show(req, res) {
     return DocumentationDept.findById(req.params.id).exec()
-        .then(handleEntityNotFound(res))
+    .populate('Order')
+    .then(handleEntityNotFound(res))
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
