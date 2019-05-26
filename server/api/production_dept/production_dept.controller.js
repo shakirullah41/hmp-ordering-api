@@ -58,14 +58,51 @@ function handleError(res, statusCode) {
         res.status(statusCode).send(err);
     };
 }
-
+/**
+ * @api {get} /api/production_dept Gets a list
+ * @apiName GetAList 
+ * @apiGroup Production Department
+ *
+ *
+ * @apiSuccess {String} man_power Man Power.
+ * @apiSuccess chilling_capacity  Chilling Capacity..
+ * @apiSuccess {String} packaging  Packaging.
+ * @apiSuccess {Boolean} vehicle_availability  Vehicle Availability.
+ * @apiSuccess {String} vehicle_information  Vehicle Information.
+ * @apiSuccess {Date} time  Time.
+ * @apiSuccess {String} hot_weight  Hot Weight.
+ * @apiSuccess {String} loading_weight  Loading Weight.
+ * @apiSuccess {String} documents_weight  Documents Weight
+ * @apiSuccess {String} airline_weight  Airline Weight.
+ * @apiSuccess {String} customer_weight  Customer Weight.
+ * @apiSuccess {String} status  status of production department.
+ **/
 // Gets a list of ProductionDepts
 export function index(req, res) {
     return ProductionDept.find().exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {get} /api/production_dept/:id Gets a single record
+ * @apiName byId 
+ * @apiGroup Production Department
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} man_power Man Power.
+ * @apiSuccess chilling_capacity  Chilling Capacity..
+ * @apiSuccess {String} packaging  Packaging.
+ * @apiSuccess {Boolean} vehicle_availability  Vehicle Availability.
+ * @apiSuccess {String} vehicle_information  Vehicle Information.
+ * @apiSuccess {Date} time  Time.
+ * @apiSuccess {String} hot_weight  Hot Weight.
+ * @apiSuccess {String} loading_weight  Loading Weight.
+ * @apiSuccess {String} documents_weight  Documents Weight
+ * @apiSuccess {String} airline_weight  Airline Weight.
+ * @apiSuccess {String} customer_weight  Customer Weight.
+ * @apiSuccess {String} status  status of production department.
+ **/
 // Gets a single ProductionDept from the DB
 export function show(req, res) {
     return ProductionDept.findById(req.params.id).exec()
