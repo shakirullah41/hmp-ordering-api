@@ -79,7 +79,7 @@ function handleError(res, statusCode) {
  **/
 // Gets a list of ProductionDepts
 export function index(req, res) {
-    const {status}=req.query;
+    const {status='pending'}=req.query;
     return ProductionDept.find({status}).populate('order').exec()
     .then(respondWithResult(res))
         .catch(handleError(res));
