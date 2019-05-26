@@ -63,6 +63,7 @@ function handleError(res, statusCode) {
  * @apiName GetAList 
  * @apiGroup Quarantine Department
  *
+ * @apiParam (Query Params) {String} status Status.
  *
  * @apiSuccess {Date} date_of_quarantine Date Of Quarantine.
  * @apiSuccess {String} proof_doc  Proof Doc.

@@ -63,6 +63,7 @@ function handleError(res, statusCode) {
  * @apiName GetAList 
  * @apiGroup Production Department
  *
+ * @apiParam (Query Params) {String} status Status.
  *
  * @apiSuccess {String} man_power Man Power.
  * @apiSuccess chilling_capacity  Chilling Capacity..

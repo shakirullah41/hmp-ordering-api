@@ -63,6 +63,7 @@ function handleError(res, statusCode) {
  * @apiName GetOrderDocumentations
  * @apiGroup Documentation Department
  *
+ * @apiParam (Query Params) {String} status Status.
  *
  * @apiSuccess {String} booking_airline Booking Airline.
  * @apiSuccess {Date} booking_time  Booking Time.
