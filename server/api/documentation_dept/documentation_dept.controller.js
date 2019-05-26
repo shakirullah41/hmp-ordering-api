@@ -191,8 +191,8 @@ export function patch(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {delete} /api/doc_team/:id Create Documentation for Order
- * @apiName CreateDocumentation
+ * @api {delete} /api/doc_team/:id delete Documentation entry
+ * @apiName DeleteDocumentation
  * @apiGroup Documentation Department
  *
  * @apiParam {Number} id Order unique ID.

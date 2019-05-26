@@ -5,7 +5,7 @@ import {registerEvents} from './production_dept.events';
 var ProductionDeptSchema = new mongoose.Schema({
   man_power: String,
   chilling_capacity: String,
-  Packaging: String,
+  packaging: String,
   vehicle_availability: Boolean ,
   vehicle_information:String, 
   time: Date,

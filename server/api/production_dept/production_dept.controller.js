@@ -90,7 +90,38 @@ export function upsert(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {patch} /api/production_dept Updates an existing Production Department
+ * @apiName update
+ * @apiGroup Production Department
+ *
+ *
+ * @apiParam (Request body) {String} man_power Man Power.
+ * @apiParam (Request body) {String} chilling_capacity  Chilling Capacity.
+ * @apiParam (Request body) {String} packaging  Packaging.
+ * @apiParam (Request body) {Boolean} vehicle_availability  Vehicle Availability.
+ * @apiParam (Request body) {String} vehicle_information  Vehicle Information.
+ * @apiParam (Request body) {Date} time  Time.
+ * @apiParam (Request body) {String} hot_weight  Hot Weight.
+ * @apiParam (Request body) {String} loading_weight  Loading Weight.
+ * @apiParam (Request body) {String} documents_weight  Documents Weight
+ * @apiParam (Request body) {String} airline_weight  Airline Weight.
+ * @apiParam (Request body) {String} customer_weight  Customer Weight.
+ * @apiParam (Request body) {String} status  status of production department.
+ * 
+ * @apiSuccess {String} man_power Man Power.
+ * @apiSuccess chilling_capacity  Chilling Capacity..
+ * @apiSuccess {String} packaging  Packaging.
+ * @apiSuccess {Boolean} vehicle_availability  Vehicle Availability.
+ * @apiSuccess {String} vehicle_information  Vehicle Information.
+ * @apiSuccess {Date} time  Time.
+ * @apiSuccess {String} hot_weight  Hot Weight.
+ * @apiSuccess {String} loading_weight  Loading Weight.
+ * @apiSuccess {String} documents_weight  Documents Weight
+ * @apiSuccess {String} airline_weight  Airline Weight.
+ * @apiSuccess {String} customer_weight  Customer Weight.
+ * @apiSuccess {String} status  status of production department.
+ **/
 // Updates an existing ProductionDept in the DB
 export function patch(req, res) {
     if(req.body._id) {
