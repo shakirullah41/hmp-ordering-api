@@ -67,7 +67,7 @@ function handleError(res, statusCode) {
  * @apiName GetOrders
  * @apiGroup Order
  *
- * @apiParam {Boolean} isApprove To get approved Orders.
+ * @apiParam (Query Params) {Boolean} isApprove To get approved Orders.
  *
  * @apiSuccess {Date} date_of_delivery Date Of Delivery of the Order.
  * @apiSuccess {String} product_type  Product Type of the Order.
