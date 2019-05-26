@@ -71,7 +71,8 @@ function handleError(res, statusCode) {
  **/
 // Gets a list of QuarantineDepts
 export function index(req, res) {
-    return QuarantineDept.find().exec()
+    const {status}=req.query;
+    return QuarantineDept.find({status}).exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
