@@ -139,13 +139,13 @@ export function patch(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-/**
- * @api {delete} /api/quarantine_dept/:id Delete
- * @apiName delete 
- * @apiGroup Quarantine Department
- *
- * @apiParam {Number} id Quarantine Dept unique ID.
- **/
+// /**
+//  * @api {delete} /api/quarantine_dept/:id Delete
+//  * @apiName delete 
+//  * @apiGroup Quarantine Department
+//  *
+//  * @apiParam {Number} id Quarantine Dept unique ID.
+//  **/
 // Deletes a QuarantineDept from the DB
 export function destroy(req, res) {
     return QuarantineDept.findById(req.params.id).exec()
