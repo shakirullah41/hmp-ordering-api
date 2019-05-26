@@ -22,7 +22,7 @@ function handleError(res, statusCode) {
  * restriction: 'admin'
  */
 /**
- * @api {get} /user Get list of users
+ * @api {get} /api/user Get list of users
  * @apiPermission admin
  * @apiName GetUser
  * @apiGroup User
@@ -47,7 +47,7 @@ export function index(req, res) {
  * Creates a new user
  */
 /**
- * @api {post} /user Creates a new user
+ * @api {post} /api/user Creates a new user
  * @apiName CreateUser
  * @apiGroup User
  *
@@ -83,7 +83,7 @@ export function create(req, res) {
  * Get a single user
  */
 /**
- * @api {get} /user/:id Request User information
+ * @api {get} /api/user/:id Request User information
  * @apiName GetUser
  * @apiGroup User
  *
@@ -114,7 +114,7 @@ export function show(req, res, next) {
  * restriction: 'admin'
  */
 /**
- * @api {delete} /user/:id Deletes a user
+ * @api {delete} /api/user/:id Deletes a user
  * @apiPermission admin
  * @apiName DeleteUser
  * @apiGroup User
@@ -133,7 +133,7 @@ export function destroy(req, res) {
  * Change a users password
  */
 /**
- * @api {put} /user/:id/password Change a users password
+ * @api {put} /api/user/:id/password Change a users password
  * @apiName ChangeUserPassword
  * @apiGroup User
  * 
@@ -166,7 +166,7 @@ export function changePassword(req, res) {
  * Get my info
  */
 /**
- * @api {get} /user/me Get my info
+ * @api {get} /api/user/me Get my info
  * @apiName GetMyInfo
  * @apiGroup User
  *

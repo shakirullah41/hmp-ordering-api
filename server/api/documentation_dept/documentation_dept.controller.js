@@ -59,7 +59,7 @@ function handleError(res, statusCode) {
     };
 }
 /**
- * @api {get} api/doc_team Gets a list of DocumentationDepts
+ * @api {get} /api/doc_team Gets a list of DocumentationDepts
  * @apiName GetOrderDocumentations
  * @apiGroup Documentation Department
  *
@@ -82,7 +82,7 @@ export function index(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {get} api/doc_team/:id Gets a single DocumentationDepts
+ * @api {get} /api/doc_team/:id Gets a single DocumentationDepts
  * @apiName GetOrderDocumentations
  * @apiGroup Documentation Department
  *
@@ -107,7 +107,7 @@ export function show(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {post} api/doc_team Create Documentation for Order
+ * @api {post} /api/doc_team Create Documentation for Order
  * @apiName CreateDocumentation
  * @apiGroup Documentation Department
  *
@@ -151,7 +151,7 @@ export function upsert(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {patch} api/doc_team/:id update Documentation for Order
+ * @api {patch} /api/doc_team/:id update Documentation for Order
  * @apiName CreateDocumentation
  * @apiGroup Documentation Department
  *
@@ -191,7 +191,7 @@ export function patch(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {delete} api/doc_team/:id Create Documentation for Order
+ * @api {delete} /api/doc_team/:id Create Documentation for Order
  * @apiName CreateDocumentation
  * @apiGroup Documentation Department
  *

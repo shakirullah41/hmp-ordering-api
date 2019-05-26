@@ -63,7 +63,7 @@ function handleError(res, statusCode) {
     };
 }
 /**
- * @api {get} /order Get list of Orders
+ * @api {get} /api/order Get list of Orders
  * @apiName GetOrders
  * @apiGroup Order
  *
@@ -94,7 +94,7 @@ export function index(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {get} /order/:id Gets a single Order
+ * @api {get} /api/order/:id Gets a single Order
  * @apiName GetOrder
  * @apiGroup Order
  *
@@ -117,7 +117,7 @@ export function show(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {post} /order Creates a new Order
+ * @api {post} /api/order Creates a new Order
  * @apiName CreateOrder
  * @apiGroup Order
  *
@@ -157,7 +157,7 @@ export function upsert(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {put} /order/:id Approve Order
+ * @api {put} /api/order/:id Approve Order
  * @apiName ApproveOrders
  * @apiGroup Order
  *
@@ -195,7 +195,7 @@ export async function approve(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {patch} /order/:id Update Order
+ * @api {patch} /api/order/:id Update Order
  * @apiName UpdateOrder
  * @apiGroup Order
  *
@@ -232,7 +232,7 @@ export function patch(req, res) {
         .catch(handleError(res));
 }
 /**
- * @api {delete} /order/:id Delete Order
+ * @api {delete} /api/order/:id Delete Order
  * @apiName DeleteOrder
  * @apiGroup Order
  *
