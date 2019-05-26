@@ -7,9 +7,10 @@ var StockSchema = new mongoose.Schema({
   quantity: Number,
   gate: String,
   vehicle: String,
-  Mandi: String,
-  Procured_by : String,
+  mandi: String,
+  procured_by : String,
   grn: String,
+  total_animals: Number,
   animals_ref: [{ type: Schema.Types.ObjectId, ref: 'Animals' }]
 },{
   timestamps: true

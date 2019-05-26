@@ -73,6 +73,7 @@ function handleError(res, statusCode) {
  * @apiSuccess {String} mandi Mandi.
  * @apiSuccess {String} Procured_by procured by.
  * @apiSuccess {String} grn grn.
+ * @apiSuccess {String} total_animals Total number of animals.
  * @apiSuccess {Array} animals_ref List of animals.
  **/
 // Gets a list of Stocks
@@ -86,7 +87,7 @@ export function index(req, res) {
  * @apiName ById 
  * @apiGroup Stock
  *
- * @apiParam {Number} id Quarantine Dept unique ID.
+ * @apiParam {Number} id stock unique ID.
  * 
 * @apiSuccess {Date} name name.
  * @apiSuccess {String} quantity quantity.
@@ -95,6 +96,7 @@ export function index(req, res) {
  * @apiSuccess {String} mandi mandi.
  * @apiSuccess {String} procured_by procured by.
  * @apiSuccess {String} grn grn.
+ * @apiSuccess {String} total_animals Total number of animals.
  * @apiSuccess {Array} animals_ref List of animals.
  **/
 // Gets a single Stock from the DB
@@ -116,6 +118,7 @@ export function show(req, res) {
  * @apiParam (Request body) {String} mandi Mandi.
  * @apiParam (Request body) {String} procured_by procured by.
  * @apiParam (Request body) {String} grn grn.
+ * @apiParam (Request body) {Number} total_animals Total number of animals.
  * @apiParam (Request body) {Object[]} animals list of animals.
  * @apiParam (Request body) {String} animals.type animal type.
  * @apiParam (Request body) {String} animals.tag animal tag.
@@ -130,6 +133,8 @@ export function show(req, res) {
  * @apiSuccess {String} mandi mandi.
  * @apiSuccess {String} procured_by procured by.
  * @apiSuccess {String} grn grn.
+ * @apiSuccess {String} total_animals Total number of animals.
+ * @apiSuccess {String} total_animals Total number of animals.
  **/
 // Creates a new Stock in the DB
 export function create(req, res) {
@@ -162,7 +167,7 @@ export function upsert(req, res) {
  * @apiName Update 
  * @apiGroup Stock
  *
- * @apiParam {Number} id Quarantine Dept unique ID.
+ * @apiParam {Number} id stock unique ID.
  *
  * @apiParam (Request body) {Date} name name .
  * @apiParam (Request body) {String} quantity quantity. 
@@ -171,6 +176,7 @@ export function upsert(req, res) {
  * @apiParam (Request body) {String} mandi mandi.
  * @apiParam (Request body) {String} procured_by procured by.
  * @apiParam (Request body) {String} grn grm.
+ * @apiParam (Request body) {Number} total_animals Total number of animals.
  * 
 * @apiSuccess {Date} name name.
  * @apiSuccess {String} quantity quantity.
@@ -179,6 +185,7 @@ export function upsert(req, res) {
  * @apiSuccess {String} mandi mandi.
  * @apiSuccess {String} procured_by procured by.
  * @apiSuccess {String} grn grn.
+ * @apiSuccess {String} total_animals Total number of animals.
  **/
 // Updates an existing Stock in the DB
 export function patch(req, res) {
@@ -191,7 +198,14 @@ export function patch(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {delete} /api/stock/:id Delete
+ * @apiName Delete 
+ * @apiGroup Stock
+ *
+ * @apiParam {Number} id stock unique ID.
+ *
+ **/
 // Deletes a Stock from the DB
 export function destroy(req, res) {
     return Stock.findById(req.params.id).exec()
