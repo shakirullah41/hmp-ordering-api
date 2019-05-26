@@ -86,7 +86,7 @@ export function index(req, res) {
  * @apiName GetOrderDocumentations
  * @apiGroup Documentation Department
  *
- * @apiParam {Number} id Order unique ID.
+ * @apiParam {Number} id Documentation unique ID.
  *
  * @apiSuccess {String} booking_airline Booking Airline.
  * @apiSuccess {Date} booking_time  Booking Time.
@@ -106,34 +106,34 @@ export function show(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-/**
- * @api {post} /api/doc_team Create Documentation for Order
- * @apiName CreateDocumentation
- * @apiGroup Documentation Department
- *
- *
- * @apiParam (Request body) {String} booking_airline Booking Airline.
- * @apiParam (Request body) {Date} booking_time  Booking Time.
- * @apiParam (Request body) {String} booking_location  Booking Location.
- * @apiParam (Request body) {String} halal_certificate  Halal Certificate.
- * @apiParam (Request body) {Date} doc_creation_date  Doc Creation Date.
- * @apiParam (Request body) {String} invoice_generation  invoice generation.
- * @apiParam (Request body) {String} certificate_of_origin  Certificate of origin.
- * @apiParam (Request body) {String} form_e  Form e.
- * @apiParam (Request body) {String} driver_name  Driver Name.
- * @apiParam (Request body) {String} status  status of Documentation department.
- * 
- * @apiSuccess {String} booking_airline Booking Airline.
- * @apiSuccess {Date} booking_time  Booking Time.
- * @apiSuccess {String} booking_location  Booking Location.
- * @apiSuccess {String} halal_certificate  Halal Certificate.
- * @apiSuccess {Date} doc_creation_date  Doc Creation Date.
- * @apiSuccess {String} invoice_generation  invoice generation.
- * @apiSuccess {String} certificate_of_origin  Certificate of origin.
- * @apiSuccess {String} form_e  Form e.
- * @apiSuccess {String} driver_name  Driver Name.
- * @apiSuccess {String} status  status of Documentation department.
- **/
+// /**
+//  * @api {post} /api/doc_team Create Documentation for Order
+//  * @apiName CreateDocumentation
+//  * @apiGroup Documentation Department
+//  *
+//  *
+//  * @apiParam (Request body) {String} booking_airline Booking Airline.
+//  * @apiParam (Request body) {Date} booking_time  Booking Time.
+//  * @apiParam (Request body) {String} booking_location  Booking Location.
+//  * @apiParam (Request body) {String} halal_certificate  Halal Certificate.
+//  * @apiParam (Request body) {Date} doc_creation_date  Doc Creation Date.
+//  * @apiParam (Request body) {String} invoice_generation  invoice generation.
+//  * @apiParam (Request body) {String} certificate_of_origin  Certificate of origin.
+//  * @apiParam (Request body) {String} form_e  Form e.
+//  * @apiParam (Request body) {String} driver_name  Driver Name.
+//  * @apiParam (Request body) {String} status  status of Documentation department.
+//  * 
+//  * @apiSuccess {String} booking_airline Booking Airline.
+//  * @apiSuccess {Date} booking_time  Booking Time.
+//  * @apiSuccess {String} booking_location  Booking Location.
+//  * @apiSuccess {String} halal_certificate  Halal Certificate.
+//  * @apiSuccess {Date} doc_creation_date  Doc Creation Date.
+//  * @apiSuccess {String} invoice_generation  invoice generation.
+//  * @apiSuccess {String} certificate_of_origin  Certificate of origin.
+//  * @apiSuccess {String} form_e  Form e.
+//  * @apiSuccess {String} driver_name  Driver Name.
+//  * @apiSuccess {String} status  status of Documentation department.
+//  **/
 // Creates a new DocumentationDept in the DB
 export function create(req, res) {
     return DocumentationDept.create(req.body)
@@ -190,14 +190,14 @@ export function patch(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-/**
- * @api {delete} /api/doc_team/:id delete Documentation entry
- * @apiName DeleteDocumentation
- * @apiGroup Documentation Department
- *
- * @apiParam {Number} id Documentation unique ID.
- *
- **/
+// /**
+//  * @api {delete} /api/doc_team/:id delete Documentation entry
+//  * @apiName DeleteDocumentation
+//  * @apiGroup Documentation Department
+//  *
+//  * @apiParam {Number} id Documentation unique ID.
+//  *
+//  **/
 // Deletes a DocumentationDept from the DB
 export function destroy(req, res) {
     return DocumentationDept.findById(req.params.id).exec()
