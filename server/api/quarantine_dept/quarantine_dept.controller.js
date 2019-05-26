@@ -58,14 +58,35 @@ function handleError(res, statusCode) {
         res.status(statusCode).send(err);
     };
 }
-
+/**
+ * @api {get} /api/quarantine_dept Gets a list
+ * @apiName GetAList 
+ * @apiGroup Quarantine Department
+ *
+ *
+ * @apiSuccess {Date} date_of_quarantine Date Of Quarantine.
+ * @apiSuccess {String} proof_doc  Proof Doc.
+ * @apiSuccess {String} department  Department.
+ * @apiSuccess {String} status  status Of Quarantine Department.
+ **/
 // Gets a list of QuarantineDepts
 export function index(req, res) {
     return QuarantineDept.find().exec()
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {get} /api/quarantine_dept/:id Gets a single record
+ * @apiName ById
+ * @apiGroup Quarantine Department
+ *
+ * @apiParam {Number} id Quarantine Dept unique ID.
+ *
+ * @apiSuccess {Date} date_of_quarantine Date Of Quarantine.
+ * @apiSuccess {String} proof_doc  Proof Doc.
+ * @apiSuccess {String} department  Department.
+ * @apiSuccess {String} status  status Of Quarantine Department.
+ **/
 // Gets a single QuarantineDept from the DB
 export function show(req, res) {
     return QuarantineDept.findById(req.params.id).exec()
@@ -90,7 +111,23 @@ export function upsert(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {patch} /api/quarantine_dept/:id Update
+ * @apiName Update 
+ * @apiGroup Quarantine Department
+ *
+ * @apiParam {Number} id Quarantine Dept unique ID.
+ *
+ * @apiParam (Request body) {Date} date_of_quarantine Date Of Quarantine.
+ * @apiParam (Request body) {String} proof_doc  Proof Doc.
+ * @apiParam (Request body) {String} department  Department.
+ * @apiParam (Request body) {String} status  status Of Quarantine Department.
+ * 
+ * @apiSuccess {Date} date_of_quarantine Date Of Quarantine.
+ * @apiSuccess {String} proof_doc  Proof Doc.
+ * @apiSuccess {String} department  Department.
+ * @apiSuccess {String} status  status Of Quarantine Department.
+ **/
 // Updates an existing QuarantineDept in the DB
 export function patch(req, res) {
     if(req.body._id) {
@@ -102,7 +139,13 @@ export function patch(req, res) {
         .then(respondWithResult(res))
         .catch(handleError(res));
 }
-
+/**
+ * @api {delete} /api/quarantine_dept/:id Delete
+ * @apiName delete 
+ * @apiGroup Quarantine Department
+ *
+ * @apiParam {Number} id Quarantine Dept unique ID.
+ **/
 // Deletes a QuarantineDept from the DB
 export function destroy(req, res) {
     return QuarantineDept.findById(req.params.id).exec()
