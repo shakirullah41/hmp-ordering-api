@@ -88,7 +88,7 @@ export function index(req, res) {
  * @apiName byId 
  * @apiGroup Production Department
  *
- * @apiParam {Number} id Users unique ID.
+ * @apiParam {Number} id production_dept unique ID.
  *
  * @apiSuccess {String} man_power Man Power.
  * @apiSuccess chilling_capacity  Chilling Capacity..

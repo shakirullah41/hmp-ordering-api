@@ -155,7 +155,7 @@ export function upsert(req, res) {
  * @apiName CreateDocumentation
  * @apiGroup Documentation Department
  *
- * @apiParam {Number} id Order unique ID.
+ * @apiParam {Number} id Documentation unique ID.
  *
  * @apiParam (Request body) {String} booking_airline Booking Airline.
  * @apiParam (Request body) {Date} booking_time  Booking Time.
@@ -195,7 +195,7 @@ export function patch(req, res) {
  * @apiName DeleteDocumentation
  * @apiGroup Documentation Department
  *
- * @apiParam {Number} id Order unique ID.
+ * @apiParam {Number} id Documentation unique ID.
  *
  **/
 // Deletes a DocumentationDept from the DB
