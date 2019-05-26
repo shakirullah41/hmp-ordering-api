@@ -77,7 +77,8 @@ function handleError(res, statusCode) {
  **/
 // Gets a list of DocumentationDepts
 export function index(req, res) {
-    return DocumentationDept.find().exec()
+    const {status}=req.query;
+    return DocumentationDept.find({status}).exec()
     .populate('Order')
         .then(respondWithResult(res))
         .catch(handleError(res));
