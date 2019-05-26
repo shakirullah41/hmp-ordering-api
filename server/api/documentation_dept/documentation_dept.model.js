@@ -4,7 +4,7 @@ import {registerEvents} from './documentation_dept.events';
 
 var DocumentationDeptSchema = new mongoose.Schema({
   booking_airline: String,
-  booking_time: String,
+  booking_time: Date,
   booking_location: String,
   halal_certificate: String,
   doc_creation_date: Date,
